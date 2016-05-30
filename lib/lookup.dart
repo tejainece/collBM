@@ -1,7 +1,7 @@
 library collBM.lookup;
 
 import 'dart:math';
-import '';
+import 'package:collBM/benchmark.dart';
 
 /*
 void lookupLinkedHashSet() {
