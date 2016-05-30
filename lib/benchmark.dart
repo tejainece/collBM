@@ -3,7 +3,11 @@ library collBM;
 class VisitCounts {
   VisitCounts(this.eqVisits, this.hashVisits);
 
-  VisitCounts.FromData() : eqVisits = Data.eqVisits, hashVisits = Data.hashVisits;
+  //VisitCounts.FromData() : eqVisits = Data.eqVisits, hashVisits = Data.hashVisits;
+
+  VisitCounts.FromDataClear() : eqVisits = Data._eqVisits, hashVisits = Data._hashVisits {
+    Data.clearVisits();
+  }
 
   final int eqVisits;
 
@@ -21,7 +25,7 @@ class Data {
 
   @override
   bool operator==(Data aOther) {
-    eqVisits++;
+    _eqVisits++;
     if(aOther is! Data) {
       return false;
     }
@@ -31,16 +35,16 @@ class Data {
 
   @override
   int get hashCode  {
-    hashVisits++;
+    _hashVisits++;
     return id.hashCode;
   }
 
-  static int eqVisits = 0;
+  static int _eqVisits = 0;
 
-  static int hashVisits = 0;
+  static int _hashVisits = 0;
 
   static void clearVisits() {
-    eqVisits = 0;
-    hashVisits = 0;
+    _eqVisits = 0;
+    _hashVisits = 0;
   }
 }

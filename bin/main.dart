@@ -13,4 +13,7 @@ main(List<String> args) {
 
   print("Set lookup:");
   print(lSetLookup.toString());
+
+  print("Map lookup:");
+  print(lookupMap());
 }
